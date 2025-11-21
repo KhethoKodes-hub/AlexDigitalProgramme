@@ -15,8 +15,12 @@
             --gradient-success: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
             --gradient-ocean: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
             --gradient-sunset: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --gradient-purple: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+            --gradient-orange: linear-gradient(135deg, #FF9800 0%, #FF5722 100%);
             --dark: #1a1a2e;
             --light: #f8f9fa;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         * {
@@ -76,7 +80,7 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             padding: 2rem;
             margin-bottom: 2rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .glass-card:hover {
@@ -131,8 +135,8 @@
             background: white;
             padding: 1.5rem;
             border-radius: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
         }
 
         .logo-box:hover {
@@ -159,7 +163,7 @@
             align-items: center;
             gap: 0.5rem;
             margin: 0.5rem;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .event-pill:hover {
@@ -174,7 +178,7 @@
             padding: 1.5rem;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .countdown-box:hover {
@@ -289,9 +293,27 @@
             border-radius: 20px;
             padding: 2rem;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: 2px solid transparent;
             height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .speaker-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-card:hover::before {
+            transform: scaleX(1);
         }
 
         .speaker-card:hover {
@@ -314,6 +336,11 @@
             font-weight: 700;
             border: 4px solid #f8f9fa;
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transition: var(--transition);
+        }
+
+        .speaker-card:hover .speaker-avatar {
+            transform: scale(1.1);
         }
 
         .speaker-name-text {
@@ -341,7 +368,7 @@
             border: none;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -369,6 +396,24 @@
             border-radius: 50px;
             transition: width 0.5s ease;
             box-shadow: 0 0 20px rgba(67, 233, 123, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar-modern::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         /* Toast Notification */
@@ -411,7 +456,7 @@
             font-weight: 600;
             color: #667eea;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
@@ -460,7 +505,7 @@
             font-size: 1.5rem;
             color: #999;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
         .close-btn:hover {
@@ -485,6 +530,113 @@
             gap: 0.5rem;
         }
 
+        /* Agenda Tabs */
+        .agenda-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            gap: 1rem;
+        }
+
+        .agenda-tab {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .agenda-tab.active {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .agenda-tab:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Agenda Day */
+        .agenda-day {
+            display: none;
+        }
+
+        .agenda-day.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Enhanced Footer */
+        .footer-modern {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 30px 30px 0 0;
+            margin-top: 3rem;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Enhanced Speaker Section */
+        .speaker-section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Enhanced Map Section */
+        .map-section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: var(--gradient-ocean);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Enhanced Timeline */
+        .timeline-container {
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2rem;
@@ -507,27 +659,15 @@
                 bottom: 1rem;
                 right: 1rem;
             }
-        }
-
-        /* Footer */
-        .footer-modern {
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            border-radius: 30px 30px 0 0;
-            margin-top: 3rem;
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .float-animation {
-            animation: float 3s ease-in-out infinite;
+            
+            .agenda-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline-container::before {
+                left: 25px;
+            }
         }
     </style>
 </head>
@@ -636,6 +776,12 @@
                 </div>
             </div>
 
+            <!-- Agenda Tabs -->
+            <div class="agenda-tabs">
+                <div class="agenda-tab active" data-day="1">Day 1 - 03 December</div>
+                <div class="agenda-tab" data-day="2">Day 2 - 04 December</div>
+            </div>
+
             <!-- Control Buttons -->
             <div class="text-center mb-4">
                 <button class="control-btn me-2" id="scrollToCurrent">
@@ -646,153 +792,235 @@
                 </button>
             </div>
 
-            <!-- Timeline -->
-            <div class="timeline" id="timeline">
-                <div class="timeline-item" data-time="09:00">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">1</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">09:00 – 09:30</div>
-                            <div class="activity-title">Arrivals: Arrival & Registration</div>
+            <!-- Day 1 Agenda -->
+            <div class="agenda-day active" id="day1">
+                <div class="timeline-container">
+                    <div class="timeline-item" data-time="09:00">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">1</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">09:00 – 09:30</div>
+                                <div class="activity-title">Arrivals: Arrival & Registration</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="09:30">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">2</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">09:30 – 09:40</div>
+                                <div class="activity-title">Opening & Welcome</div>
+                                <div class="speaker-name">Tefo Raphadu (Alexandra Councillor)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="09:40">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">3</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">09:40 – 09:50</div>
+                                <div class="activity-title">Purpose of the Day</div>
+                                <div class="speaker-name">Mulalo Ramulandi (Coordinator Water Wise & Research)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="09:50">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">4</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">09:50 – 10:00</div>
+                                <div class="activity-title">Brandscapers Africa Representative</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="10:00">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">5</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">10:00 – 10:15</div>
+                                <div class="activity-title">Rand Water Representative</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="10:15">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">6</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">10:15 – 10:30</div>
+                                <div class="activity-title">Message of Support</div>
+                                <div class="speaker-name">Alexandra Warrior Representative</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="10:30">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">7</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">10:30 – 10:45</div>
+                                <div class="activity-title">Department of Water and Sanitation</div>
+                                <div class="speaker-name">To be confirmed</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item tea-break" data-time="10:45">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">☕</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">10:45 – 11:05</div>
+                                <div class="activity-title">☕ Tea Break ☕</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="11:05">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">9</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">11:05 – 11:20</div>
+                                <div class="activity-title">City of Johannesburg</div>
+                                <div class="speaker-name">Cllr. Jack Sekwaila (MMC)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="11:20">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">10</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">11:20 – 11:35</div>
+                                <div class="activity-title">Johannesburg Water</div>
+                                <div class="speaker-name">Thega Randsamy</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="11:35">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">11</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">11:35 – 11:50</div>
+                                <div class="activity-title">EWSETA Project Manager</div>
+                                <div class="speaker-name">Nkanyezi Blose</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="11:50">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">12</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">11:50 – 12:50</div>
+                                <div class="activity-title">Recycling Centre Site Visit</div>
+                                <div class="speaker-name">Effective Waste Management & Recycling Initiatives</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="12:50">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">13</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">12:50 – 13:05</div>
+                                <div class="activity-title">Rand Water</div>
+                                <div class="speaker-name">Mulalo Ramulandi - Thanksgiving & Acknowledgement</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-time="13:05">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">14</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">13:05 – 13:10</div>
+                                <div class="activity-title">Vote of Thanks and Announcement</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="timeline-item" data-time="09:30">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">2</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">09:30 – 09:40</div>
-                            <div class="activity-title">Opening & Welcome</div>
-                            <div class="speaker-name">Tefo Raphadu (Alexandra Councillor)</div>
+            <!-- Day 2 Agenda -->
+            <div class="agenda-day" id="day2">
+                <div class="timeline-container">
+                    <div class="timeline-item" data-time="09:00">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">1</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">09:00 – 09:30</div>
+                                <div class="activity-title">Day 2 Arrivals & Registration</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item" data-time="09:40">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">3</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">09:40 – 09:50</div>
-                            <div class="activity-title">Purpose of the Day</div>
-                            <div class="speaker-name">Mulalo Ramulandi (Coordinator Water Wise & Research)</div>
+                    <div class="timeline-item" data-time="09:30">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">2</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">09:30 – 10:00</div>
+                                <div class="activity-title">Day 2 Opening & Recap</div>
+                                <div class="speaker-name">Mulalo Ramulandi</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item" data-time="09:50">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">4</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">09:50 – 10:00</div>
-                            <div class="activity-title">Brandscapers Africa Representative</div>
+                    <div class="timeline-item" data-time="10:00">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">3</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">10:00 – 11:00</div>
+                                <div class="activity-title">Water Conservation Workshop</div>
+                                <div class="speaker-name">Water Wise Team</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item" data-time="10:00">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">5</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">10:00 – 10:15</div>
-                            <div class="activity-title">Rand Water Representative</div>
+                    <div class="timeline-item tea-break" data-time="11:00">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">☕</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">11:00 – 11:20</div>
+                                <div class="activity-title">☕ Tea Break ☕</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item" data-time="10:15">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">6</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">10:15 – 10:30</div>
-                            <div class="activity-title">Message of Support</div>
-                            <div class="speaker-name">Alexandra Warrior Representative</div>
+                    <div class="timeline-item" data-time="11:20">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">4</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">11:20 – 12:30</div>
+                                <div class="activity-title">Community Action Planning</div>
+                                <div class="speaker-name">Facilitated by EWSETA</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item" data-time="10:30">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">7</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">10:30 – 10:45</div>
-                            <div class="activity-title">Department of Water and Sanitation</div>
-                            <div class="speaker-name">To be confirmed</div>
+                    <div class="timeline-item" data-time="12:30">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">5</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">12:30 – 13:30</div>
+                                <div class="activity-title">Interactive Panel Discussion</div>
+                                <div class="speaker-name">All Speakers</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item tea-break" data-time="10:45">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">☕</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">10:45 – 11:05</div>
-                            <div class="activity-title">☕ Tea Break ☕</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-time="11:05">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">9</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">11:05 – 11:20</div>
-                            <div class="activity-title">City of Johannesburg</div>
-                            <div class="speaker-name">Cllr. Jack Sekwaila (MMC)</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-time="11:20">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">10</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">11:20 – 11:35</div>
-                            <div class="activity-title">Johannesburg Water</div>
-                            <div class="speaker-name">Thega Randsamy</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-time="11:35">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">11</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">11:35 – 11:50</div>
-                            <div class="activity-title">EWSETA Project Manager</div>
-                            <div class="speaker-name">Nkanyezi Blose</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-time="11:50">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">12</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">11:50 – 12:50</div>
-                            <div class="activity-title">Recycling Centre Site Visit</div>
-                            <div class="speaker-name">Effective Waste Management & Recycling Initiatives</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-time="12:50">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">13</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">12:50 – 13:05</div>
-                            <div class="activity-title">Rand Water</div>
-                            <div class="speaker-name">Mulalo Ramulandi - Thanksgiving & Acknowledgement</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-time="13:05">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="session-badge">14</div>
-                        <div class="flex-grow-1">
-                            <div class="time-badge">13:05 – 13:10</div>
-                            <div class="activity-title">Vote of Thanks and Announcement</div>
+                    <div class="timeline-item" data-time="13:30">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="session-badge">6</div>
+                            <div class="flex-grow-1">
+                                <div class="time-badge">13:30 – 14:00</div>
+                                <div class="activity-title">Closing Ceremony & Certificates</div>
+                                <div class="speaker-name">Rand Water Executive</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -800,7 +1028,7 @@
 
             <!-- Speakers Section -->
             <div class="glass-card glass-card-solid mt-5">
-                <h2 class="text-center mb-4" style="background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800;">Featured Speakers</h2>
+                <h2 class="speaker-section-title">Featured Speakers</h2>
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-4">
                         <div class="speaker-card">
@@ -837,12 +1065,19 @@
                             <div class="speaker-role">EWSETA Project Manager</div>
                         </div>
                     </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="speaker-card">
+                            <div class="speaker-avatar" style="background: var(--gradient-purple);">SM</div>
+                            <div class="speaker-name-text">Sibusiso Molimi</div>
+                            <div class="speaker-role">Program Facilitator</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Map Section -->
             <div class="glass-card glass-card-solid mt-5">
-                <h2 class="text-center mb-4" style="background: var(--gradient-ocean); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 800;">Event Location</h2>
+                <h2 class="map-section-title">Event Location</h2>
                 <p class="text-center text-muted mb-4">
                     <i class="fas fa-map-marker-alt me-2"></i>
                     East Bank Hall, Alexandra, Johannesburg
@@ -907,7 +1142,9 @@
             const currentMinute = now.getMinutes();
             const currentTimeInMinutes = currentHour * 60 + currentMinute;
 
-            const items = document.querySelectorAll('.timeline-item');
+            const activeDay = document.querySelector('.agenda-day.active');
+            const items = activeDay.querySelectorAll('.timeline-item');
+            
             items.forEach(item => {
                 const timeAttr = item.getAttribute('data-time');
                 if (timeAttr) {
@@ -937,7 +1174,7 @@
         function updateProgressBar() {
             const now = new Date();
             const eventStart = new Date('2025-12-03T09:00:00');
-            const eventEnd = new Date('2025-12-03T14:00:00');
+            const eventEnd = new Date('2025-12-04T14:00:00');
             
             if (now < eventStart) {
                 document.getElementById('progressBar').style.width = '0%';
@@ -988,7 +1225,8 @@
 
         // Scroll to current session
         function scrollToCurrent() {
-            const activeItem = document.querySelector('.timeline-item.active');
+            const activeDay = document.querySelector('.agenda-day.active');
+            const activeItem = activeDay.querySelector('.timeline-item.active');
             if (activeItem) {
                 activeItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 showToast('Scrolled to current session');
@@ -1064,17 +1302,37 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Event listeners
-        document.getElementById('scrollToCurrent').addEventListener('click', scrollToCurrent);
-        document.getElementById('toggleAnimations').addEventListener('click', toggleAnimations);
+        // Agenda tabs functionality
+        document.querySelectorAll('.agenda-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const day = this.getAttribute('data-day');
+                
+                // Update active tab
+                document.querySelectorAll('.agenda-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show corresponding day
+                document.querySelectorAll('.agenda-day').forEach(dayEl => {
+                    dayEl.classList.remove('active');
+                });
+                document.getElementById(`day${day}`).classList.add('active');
+                
+                showToast(`Now viewing Day ${day} agenda`);
+            });
+        });
 
         // Timeline item click
         document.querySelectorAll('.timeline-item').forEach(item => {
             item.addEventListener('click', function() {
-                document.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('active'));
+                const activeDay = document.querySelector('.agenda-day.active');
+                activeDay.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
             });
         });
+
+        // Event listeners
+        document.getElementById('scrollToCurrent').addEventListener('click', scrollToCurrent);
+        document.getElementById('toggleAnimations').addEventListener('click', toggleAnimations);
 
         // Initialize
         updateCurrentTime();

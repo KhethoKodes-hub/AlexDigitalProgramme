@@ -1012,10 +1012,6 @@
                     <label class="rsvp-form-label" for="phone">Phone Number</label>
                     <input type="tel" class="rsvp-form-input" id="phone" required>
                 </div>
-                <!--<div class="rsvp-form-group">
-                    <label class="rsvp-form-label" for="organization">Organization</label>
-                    <input type="text" class="rsvp-form-input" id="organization">
-                </div>-->
                 <div class="rsvp-form-group">
                     <label class="rsvp-form-label" for="days">Which days will you attend?</label>
                     <div class="mt-2">
@@ -1723,7 +1719,6 @@
             body += `Name: ${name}\n`;
             body += `Email: ${email}\n`;
             body += `Phone: ${phone}\n`;
-            body += `Organization: ${organization}\n`;
             body += `Days Attending: ${days.join(', ')}\n`;
             body += `Additional Notes: ${message}\n\n`;
             body += `Looking forward to the event!\n\n`;

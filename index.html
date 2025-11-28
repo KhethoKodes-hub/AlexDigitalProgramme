@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="icon" href="assets/randwaterlogo.png" type="image/x-icon">
     <style>
         :root {
             --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -18,6 +17,7 @@
             --gradient-sunset: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
             --gradient-purple: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
             --gradient-orange: linear-gradient(135deg, #FF9800 0%, #FF5722 100%);
+            --gradient-blue-white: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #ffffff 100%);
             --dark: #1a1a2e;
             --light: #f8f9fa;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -156,6 +156,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            padding: 1rem;
         }
 
         .rsvp-modal.show {
@@ -164,17 +165,19 @@
         }
 
         .rsvp-modal-content {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--gradient-blue-white);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-radius: 30px;
             padding: 2.5rem;
             max-width: 500px;
-            width: 90%;
+            width: 100%;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             transform: translateY(50px);
             transition: transform 0.4s ease;
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .rsvp-modal.show .rsvp-modal-content {
@@ -191,6 +194,7 @@
             color: #999;
             cursor: pointer;
             transition: var(--transition);
+            z-index: 10;
         }
 
         .rsvp-close:hover {
@@ -831,17 +835,51 @@
             
             .rsvp-modal-content {
                 padding: 1.5rem;
+                max-height: 85vh;
+                overflow-y: auto;
             }
-        }
-
-        @media (max-width: 576px) {
+            
+            .countdown-box {
+                padding: 1rem;
+            }
+            
+            .countdown-value {
+                font-size: 1.8rem;
+            }
+            
             .glass-card {
                 padding: 1.5rem;
                 border-radius: 20px;
             }
             
-            .countdown-value {
-                font-size: 1.8rem;
+            .hero-header {
+                padding: 2rem 1rem;
+            }
+            
+            .event-pill {
+                display: block;
+                margin: 0.5rem auto;
+                width: fit-content;
+            }
+            
+            .control-btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            
+            .speaker-card {
+                padding: 1.5rem;
+            }
+            
+            .speaker-avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 1.5rem;
+            }
+            
+            .speaker-name-text {
+                font-size: 1.1rem;
             }
             
             .timeline-item {
@@ -858,14 +896,75 @@
                 font-size: 1.1rem;
             }
             
-            .speaker-avatar {
-                width: 80px;
-                height: 80px;
+            .map-container {
+                height: 300px;
+            }
+            
+            .footer-modern {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .rsvp-modal-content {
+                padding: 1.2rem;
+                max-height: 80vh;
+            }
+            
+            .countdown-value {
                 font-size: 1.5rem;
             }
             
-            .speaker-name-text {
-                font-size: 1.1rem;
+            .countdown-label {
+                font-size: 0.8rem;
+            }
+            
+            .speaker-section-title,
+            .map-section-title {
+                font-size: 1.8rem;
+            }
+            
+            .logo-img {
+                height: 60px;
+            }
+            
+            .logo-box {
+                padding: 1rem;
+            }
+            
+            .water-tip-card {
+                bottom: 5rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            
+            .countdown-value {
+                font-size: 1.2rem;
+            }
+            
+            .rsvp-modal-content {
+                padding: 1rem;
+            }
+            
+            .rsvp-form-input {
+                padding: 0.8rem;
+            }
+            
+            .agenda-tab {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
             }
         }
     </style>

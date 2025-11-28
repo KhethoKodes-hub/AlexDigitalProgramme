@@ -72,10 +72,11 @@
             z-index: 10;
         }
 
-        /* Glass Morphism Card */
+        /* Enhanced Glass Morphism */
         .glass-card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
@@ -92,6 +93,154 @@
         .glass-card-solid {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* RSVP Button */
+        .rsvp-btn {
+            background: var(--gradient-success);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(67, 233, 123, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 1rem 0;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .rsvp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: -1;
+        }
+
+        .rsvp-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(67, 233, 123, 0.5);
+        }
+
+        .rsvp-btn:hover::before {
+            transform: translateX(0);
+        }
+
+        /* RSVP Modal */
+        .rsvp-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .rsvp-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .rsvp-modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(50px);
+            transition: transform 0.4s ease;
+            position: relative;
+        }
+
+        .rsvp-modal.show .rsvp-modal-content {
+            transform: translateY(0);
+        }
+
+        .rsvp-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #999;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .rsvp-close:hover {
+            color: #667eea;
+            transform: rotate(90deg);
+        }
+
+        .rsvp-form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .rsvp-form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .rsvp-form-input {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            background: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .rsvp-form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        .rsvp-submit-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .rsvp-submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
         }
 
         /* Hero Header */
@@ -155,6 +304,7 @@
         .event-pill {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50px;
             padding: 0.8rem 1.5rem;
@@ -253,6 +403,7 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -266,6 +417,7 @@
         .time-badge {
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             color: white;
             padding: 0.5rem 1.2rem;
             border-radius: 50px;
@@ -542,6 +694,7 @@
         .agenda-tab {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50px;
             padding: 0.8rem 1.5rem;
@@ -580,6 +733,7 @@
         .footer-modern {
             background: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             color: white;
             padding: 2rem;
             text-align: center;
@@ -669,6 +823,50 @@
             .timeline-container::before {
                 left: 25px;
             }
+            
+            .rsvp-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .rsvp-modal-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .glass-card {
+                padding: 1.5rem;
+                border-radius: 20px;
+            }
+            
+            .countdown-value {
+                font-size: 1.8rem;
+            }
+            
+            .timeline-item {
+                padding: 1rem;
+            }
+            
+            .session-badge {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .activity-title {
+                font-size: 1.1rem;
+            }
+            
+            .speaker-avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 1.5rem;
+            }
+            
+            .speaker-name-text {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -697,6 +895,48 @@
         <div id="waterTipContent">Fix leaking taps promptly - a dripping tap can waste up to 30 litres of water per day!</div>
     </div>
 
+    <!-- RSVP Modal -->
+    <div class="rsvp-modal" id="rsvpModal">
+        <div class="rsvp-modal-content">
+            <button class="rsvp-close" id="rsvpClose">&times;</button>
+            <h2 class="text-center mb-4" style="color: #667eea;">RSVP for the Event</h2>
+            <form id="rsvpForm">
+                <div class="rsvp-form-group">
+                    <label class="rsvp-form-label" for="name">Full Name</label>
+                    <input type="text" class="rsvp-form-input" id="name" required>
+                </div>
+                <div class="rsvp-form-group">
+                    <label class="rsvp-form-label" for="email">Email Address</label>
+                    <input type="email" class="rsvp-form-input" id="email" required>
+                </div>
+                <div class="rsvp-form-group">
+                    <label class="rsvp-form-label" for="phone">Phone Number</label>
+                    <input type="tel" class="rsvp-form-input" id="phone" required>
+                </div>
+                <div class="rsvp-form-group">
+                    <label class="rsvp-form-label" for="organization">Organization</label>
+                    <input type="text" class="rsvp-form-input" id="organization">
+                </div>
+                <div class="rsvp-form-group">
+                    <label class="rsvp-form-label" for="days">Which days will you attend?</label>
+                    <div class="mt-2">
+                        <input type="checkbox" id="day1" name="days" value="Day 1 - 03 December">
+                        <label for="day1" class="ms-2">Day 1 - 03 December</label>
+                    </div>
+                    <div class="mt-1">
+                        <input type="checkbox" id="day2" name="days" value="Day 2 - 04 December">
+                        <label for="day2" class="ms-2">Day 2 - 04 December</label>
+                    </div>
+                </div>
+                <div class="rsvp-form-group">
+                    <label class="rsvp-form-label" for="message">Additional Notes</label>
+                    <textarea class="rsvp-form-input" id="message" rows="3"></textarea>
+                </div>
+                <button type="submit" class="rsvp-submit-btn">Submit RSVP</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Floating Action Button -->
     <button class="fab" id="scrollToTop" title="Scroll to Top">
         <i class="fas fa-arrow-up"></i>
@@ -706,9 +946,15 @@
     <div class="content-wrapper">
         <div class="container py-5">
             <!-- Hero Header -->
-            <div class="hero-header">
+            <div class="hero-header"> 
                 <h1 class="hero-title float-animation">Drop by Drop Outreach Programme</h1>
                 <p class="hero-subtitle">Alexandra Outreach - Water Conservation & Community Engagement</p>
+                
+                <!-- RSVP Button -->
+                <button class="rsvp-btn" id="rsvpBtn">
+                    <i class="fas fa-envelope"></i>
+                    RSVP Now
+                </button>
             </div>
 
             <!-- Main Info Card -->
@@ -1329,6 +1575,77 @@
                 activeDay.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
             });
+        });
+
+        // RSVP Modal Functionality
+        const rsvpModal = document.getElementById('rsvpModal');
+        const rsvpBtn = document.getElementById('rsvpBtn');
+        const rsvpClose = document.getElementById('rsvpClose');
+        const rsvpForm = document.getElementById('rsvpForm');
+
+        rsvpBtn.addEventListener('click', function() {
+            rsvpModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+
+        rsvpClose.addEventListener('click', function() {
+            rsvpModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
+
+        rsvpModal.addEventListener('click', function(e) {
+            if (e.target === rsvpModal) {
+                rsvpModal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        rsvpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const organization = document.getElementById('organization').value;
+            
+            // Get selected days
+            const day1 = document.getElementById('day1').checked;
+            const day2 = document.getElementById('day2').checked;
+            const days = [];
+            if (day1) days.push('Day 1 - 03 December');
+            if (day2) days.push('Day 2 - 04 December');
+            
+            const message = document.getElementById('message').value;
+            
+            // Create email content
+            const subject = `RSVP for Drop by Drop Outreach Programme - ${name}`;
+            let body = `Dear Event Organizers,\n\n`;
+            body += `I would like to RSVP for the Drop by Drop Outreach Programme.\n\n`;
+            body += `Name: ${name}\n`;
+            body += `Email: ${email}\n`;
+            body += `Phone: ${phone}\n`;
+            body += `Organization: ${organization}\n`;
+            body += `Days Attending: ${days.join(', ')}\n`;
+            body += `Additional Notes: ${message}\n\n`;
+            body += `Looking forward to the event!\n\n`;
+            body += `Best regards,\n${name}`;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:info@brandscapersafrica.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            showToast('RSVP submitted! Opening email client...');
+            
+            // Close modal after a delay
+            setTimeout(() => {
+                rsvpModal.classList.remove('show');
+                document.body.style.overflow = 'auto';
+                rsvpForm.reset();
+            }, 2000);
         });
 
         // Event listeners

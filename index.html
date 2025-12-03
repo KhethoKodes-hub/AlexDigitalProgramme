@@ -291,6 +291,9 @@
             border-radius: 20px;
             transition: var(--transition);
             box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .logo-box:hover {
@@ -302,6 +305,20 @@
             height: 80px;
             width: auto;
             object-fit: contain;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            font-weight: bold;
+            text-align: center;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 0.5rem;
         }
 
         /* Event Details Pills */
@@ -693,6 +710,7 @@
             justify-content: center;
             margin-bottom: 2rem;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .agenda-tab {
@@ -784,17 +802,6 @@
             position: relative;
         }
 
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            left: 25px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 2px;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
@@ -822,10 +829,6 @@
             .agenda-tabs {
                 flex-direction: column;
                 align-items: center;
-            }
-            
-            .timeline-container::before {
-                left: 25px;
             }
             
             .rsvp-btn {
@@ -1058,12 +1061,12 @@
                 <div class="row justify-content-center mb-4">
                     <div class="col-auto">
                         <div class="logo-box">
-                            <img src="assets/waterwiseLogo.jpeg" alt="Water Wise" class="logo-img">
+                            <div class="logo-placeholder">Water Wise<br>Logo</div>
                         </div>
                     </div>
                     <div class="col-auto">
                         <div class="logo-box">
-                            <img src="assets/randwaterLogo.png" alt="Rand Water" class="logo-img">
+                            <div class="logo-placeholder">Rand Water<br>Logo</div>
                         </div>
                     </div>
                 </div>
@@ -1086,25 +1089,25 @@
 
                 <!-- Countdown -->
                 <div class="row g-3 mb-4" id="countdown">
-                    <div class="col-3">
+                    <div class="col-6 col-md-3">
                         <div class="countdown-box">
                             <div class="countdown-value" id="days">00</div>
                             <div class="countdown-label">Days</div>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-6 col-md-3">
                         <div class="countdown-box">
                             <div class="countdown-value" id="hours">00</div>
                             <div class="countdown-label">Hours</div>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-6 col-md-3">
                         <div class="countdown-box">
                             <div class="countdown-value" id="minutes">00</div>
                             <div class="countdown-label">Minutes</div>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-6 col-md-3">
                         <div class="countdown-box">
                             <div class="countdown-value" id="seconds">00</div>
                             <div class="countdown-label">Seconds</div>
@@ -1134,14 +1137,14 @@
                 </button>
             </div>
 
-            <!-- Day 1 Agenda -->
+            <!-- Day 1 Agenda (Updated from PDF) -->
             <div class="agenda-day active" id="day1">
                 <div class="timeline-container">
                     <div class="timeline-item" data-time="09:00">
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">1</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">09:00 – 09:30</div>
+                                <div class="time-badge">09h00 – 09h30</div>
                                 <div class="activity-title">Arrivals: Arrival & Registration</div>
                             </div>
                         </div>
@@ -1151,7 +1154,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">2</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">09:30 – 09:40</div>
+                                <div class="time-badge">09h30 – 09h40</div>
                                 <div class="activity-title">Opening & Welcome</div>
                                 <div class="speaker-name">Tefo Raphadu (Alexandra Councillor)</div>
                             </div>
@@ -1162,7 +1165,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">3</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">09:40 – 09:50</div>
+                                <div class="time-badge">09h40 – 09h50</div>
                                 <div class="activity-title">Purpose of the Day</div>
                                 <div class="speaker-name">Mulalo Ramulandi (Coordinator Water Wise & Research)</div>
                             </div>
@@ -1173,7 +1176,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">4</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">09:50 – 10:00</div>
+                                <div class="time-badge">09h50 – 10h00</div>
                                 <div class="activity-title">Brandscapers Africa Representative</div>
                             </div>
                         </div>
@@ -1183,7 +1186,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">5</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">10:00 – 10:15</div>
+                                <div class="time-badge">10h00 – 10h15</div>
                                 <div class="activity-title">Rand Water Representative</div>
                             </div>
                         </div>
@@ -1193,7 +1196,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">6</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">10:15 – 10:30</div>
+                                <div class="time-badge">10h15 – 10h30</div>
                                 <div class="activity-title">Message of Support</div>
                                 <div class="speaker-name">Alexandra Warrior Representative</div>
                             </div>
@@ -1204,9 +1207,9 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">7</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">10:30 – 10:45</div>
+                                <div class="time-badge">10h30 – 10h45</div>
                                 <div class="activity-title">Department of Water and Sanitation</div>
-                                <div class="speaker-name">To be confirmed</div>
+                                <div class="speaker-name">Mr. Mulalo Bvumbi; Director Water and Sanitation Service Support</div>
                             </div>
                         </div>
                     </div>
@@ -1215,7 +1218,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">☕</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">10:45 – 11:05</div>
+                                <div class="time-badge">10h45 – 11h05</div>
                                 <div class="activity-title">☕ Tea Break ☕</div>
                             </div>
                         </div>
@@ -1225,9 +1228,9 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">9</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">11:05 – 11:20</div>
+                                <div class="time-badge">11h05 – 11h20</div>
                                 <div class="activity-title">City of Johannesburg</div>
-                                <div class="speaker-name">Cllr. Jack Sekwaila (MMC)</div>
+                                <div class="speaker-name">Mr. Ondela Tywakadi (Principal Specialist: Water Services Regulation & Policy Development)</div>
                             </div>
                         </div>
                     </div>
@@ -1236,9 +1239,9 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">10</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">11:20 – 11:35</div>
+                                <div class="time-badge">11h20 – 11h35</div>
                                 <div class="activity-title">Johannesburg Water</div>
-                                <div class="speaker-name">Thega Randsamy</div>
+                                <div class="speaker-name">Ramabega Patrick Lebotsa (Operational Manager Loss Control)</div>
                             </div>
                         </div>
                     </div>
@@ -1247,20 +1250,20 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">11</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">11:35 – 11:50</div>
-                                <div class="activity-title">EWSETA Project Manager</div>
-                                <div class="speaker-name">Nkanyezi Blose</div>
+                                <div class="time-badge">11h35 – 12h35</div>
+                                <div class="activity-title">Recycling Centre Site Visit</div>
+                                <div class="speaker-name">Effective Waste Management & Recycling Initiatives to Transform Environmental Challenges</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-item" data-time="11:50">
+                    <div class="timeline-item" data-time="12:35">
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">12</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">11:50 – 12:50</div>
-                                <div class="activity-title">Recycling Centre Site Visit</div>
-                                <div class="speaker-name">Effective Waste Management & Recycling Initiatives</div>
+                                <div class="time-badge">12h35 – 12h50</div>
+                                <div class="activity-title">Rand Water</div>
+                                <div class="speaker-name">Mulalo Ramulandi (Coordinator Water Wise & Research) - Thanksgiving and Acknowledgement of Stakeholders</div>
                             </div>
                         </div>
                     </div>
@@ -1269,18 +1272,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">13</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">12:50 – 13:05</div>
-                                <div class="activity-title">Rand Water</div>
-                                <div class="speaker-name">Mulalo Ramulandi - Thanksgiving & Acknowledgement</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-time="13:05">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="session-badge">14</div>
-                            <div class="flex-grow-1">
-                                <div class="time-badge">13:05 – 13:10</div>
+                                <div class="time-badge">12h50 – 12h55</div>
                                 <div class="activity-title">Vote of Thanks and Announcement</div>
                             </div>
                         </div>
@@ -1288,14 +1280,14 @@
                 </div>
             </div>
 
-            <!-- Day 2 Agenda -->
+            <!-- Day 2 Agenda (Kept as is since PDF only shows Day 1) -->
             <div class="agenda-day" id="day2">
                 <div class="timeline-container">
                     <div class="timeline-item" data-time="09:00">
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">1</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">09:00 – 09:30</div>
+                                <div class="time-badge">09h00 – 09h30</div>
                                 <div class="activity-title">Day 2 Arrivals & Registration</div>
                             </div>
                         </div>
@@ -1305,7 +1297,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">2</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">09:30 – 10:00</div>
+                                <div class="time-badge">09h30 – 10h00</div>
                                 <div class="activity-title">Day 2 Opening & Recap</div>
                                 <div class="speaker-name">Mulalo Ramulandi</div>
                             </div>
@@ -1316,7 +1308,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">3</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">10:00 – 11:00</div>
+                                <div class="time-badge">10h00 – 11h00</div>
                                 <div class="activity-title">Water Conservation Workshop</div>
                                 <div class="speaker-name">Water Wise Team</div>
                             </div>
@@ -1327,7 +1319,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">☕</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">11:00 – 11:20</div>
+                                <div class="time-badge">11h00 – 11h20</div>
                                 <div class="activity-title">☕ Tea Break ☕</div>
                             </div>
                         </div>
@@ -1337,7 +1329,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">4</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">11:20 – 12:30</div>
+                                <div class="time-badge">11h20 – 12h30</div>
                                 <div class="activity-title">Community Action Planning</div>
                                 <div class="speaker-name">Facilitated by EWSETA</div>
                             </div>
@@ -1348,7 +1340,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">5</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">12:30 – 13:30</div>
+                                <div class="time-badge">12h30 – 13h30</div>
                                 <div class="activity-title">Interactive Panel Discussion</div>
                                 <div class="speaker-name">All Speakers</div>
                             </div>
@@ -1359,7 +1351,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div class="session-badge">6</div>
                             <div class="flex-grow-1">
-                                <div class="time-badge">13:30 – 14:00</div>
+                                <div class="time-badge">13h30 – 14h00</div>
                                 <div class="activity-title">Closing Ceremony & Certificates</div>
                                 <div class="speaker-name">Rand Water Executive</div>
                             </div>
@@ -1368,7 +1360,7 @@
                 </div>
             </div>
 
-            <!-- Speakers Section -->
+            <!-- Speakers Section (Updated with new speakers from PDF) -->
             <div class="glass-card glass-card-solid mt-5">
                 <h2 class="speaker-section-title">Featured Speakers</h2>
                 <div class="row g-4">
@@ -1388,23 +1380,23 @@
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="speaker-card">
-                            <div class="speaker-avatar" style="background: var(--gradient-secondary);">JS</div>
-                            <div class="speaker-name-text">Cllr. Jack Sekwaila</div>
-                            <div class="speaker-role">MMC, City of Johannesburg</div>
+                            <div class="speaker-avatar" style="background: var(--gradient-secondary);">MB</div>
+                            <div class="speaker-name-text">Mr. Mulalo Bvumbi</div>
+                            <div class="speaker-role">Director Water and Sanitation Service Support, DWS</div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="speaker-card">
-                            <div class="speaker-avatar" style="background: var(--gradient-success);">TR</div>
-                            <div class="speaker-name-text">Thega Randsamy</div>
-                            <div class="speaker-role">Johannesburg Water</div>
+                            <div class="speaker-avatar" style="background: var(--gradient-success);">OT</div>
+                            <div class="speaker-name-text">Mr. Ondela Tywakadi</div>
+                            <div class="speaker-role">Principal Specialist: Water Services Regulation & Policy Development, CoJ</div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
                         <div class="speaker-card">
-                            <div class="speaker-avatar" style="background: var(--gradient-ocean);">NB</div>
-                            <div class="speaker-name-text">Nkanyezi Blose</div>
-                            <div class="speaker-role">EWSETA Project Manager</div>
+                            <div class="speaker-avatar" style="background: var(--gradient-ocean);">PL</div>
+                            <div class="speaker-name-text">Ramabega Patrick Lebotsa</div>
+                            <div class="speaker-role">Operational Manager Loss Control, Johannesburg Water</div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
@@ -1431,13 +1423,13 @@
             <div class="glass-card text-center mt-5">
                 <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
                     <span class="text-white fw-bold fs-5">Powered by</span>
-                    <img src="assets/brandscapersLogo.jpeg" alt="Brandscapers Africa" style="height: 50px;">
+                    <div class="logo-placeholder" style="background: white; color: #667eea;">Brandscapers<br>Africa</div>
                     <span class="text-white fw-bold fs-5">Brandscapers Africa</span>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
+        <!-- Footer (Updated to include Program Facilitator from PDF) -->
         <div class="footer-modern">
             <p class="mb-2 fw-bold">Drop by Drop - Alexandra Outreach</p>
             <p class="mb-2">03-04 December 2025 | East Bank Hall, Alexandra</p>
@@ -1526,7 +1518,7 @@
                 const totalDuration = eventEnd - eventStart;
                 const elapsed = now - eventStart;
                 const progress = (elapsed / totalDuration) * 100;
-                document.getElementById('progressBar').style.width = `${progress}%`;
+                document.getElementById('progressBar').style.width = `${Math.min(100, Math.max(0, progress))}%`;
             }
         }
 
@@ -1590,6 +1582,7 @@
                 showToast('Animations paused');
             } else {
                 bubbleInterval = setInterval(createBubble, 600);
+                for(let i = 0; i < 5; i++) createBubble();
                 btn.innerHTML = '<i class="fas fa-pause me-2"></i>Pause Animations';
                 showToast('Animations resumed');
             }
@@ -1629,14 +1622,27 @@
 
         // Initialize map
         function initMap() {
-            const map = L.map('map').setView([-26.1030, 28.0913], 15);
-            
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; OpenStreetMap contributors'
-            }).addTo(map);
-            
-            const marker = L.marker([-26.1030, 28.0913]).addTo(map);
-            marker.bindPopup('<b>East Bank Hall</b><br>Alexandra, Johannesburg').openPopup();
+            try {
+                const map = L.map('map').setView([-26.1030, 28.0913], 15);
+                
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+                
+                const marker = L.marker([-26.1030, 28.0913]).addTo(map);
+                marker.bindPopup('<b>East Bank Hall</b><br>Alexandra, Johannesburg<br>Venue for Drop by Drop Outreach Programme').openPopup();
+            } catch (error) {
+                console.log('Map initialization failed:', error);
+                document.getElementById('map').innerHTML = `
+                    <div style="height: 100%; display: flex; align-items: center; justify-content: center; background: var(--gradient-accent); color: white; padding: 2rem; text-align: center;">
+                        <div>
+                            <h3>📍 East Bank Hall, Alexandra</h3>
+                            <p>Johannesburg, Gauteng</p>
+                            <p>Event Venue for Water Conservation Programme</p>
+                        </div>
+                    </div>
+                `;
+            }
         }
 
         // Scroll to top button
@@ -1660,6 +1666,9 @@
                 document.getElementById(`day${day}`).classList.add('active');
                 
                 showToast(`Now viewing Day ${day} agenda`);
+                
+                // Update active session highlighting
+                updateCurrentTime();
             });
         });
 
@@ -1669,6 +1678,13 @@
                 const activeDay = document.querySelector('.agenda-day.active');
                 activeDay.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('active'));
                 this.classList.add('active');
+                
+                // Extract session info
+                const time = this.querySelector('.time-badge')?.textContent || '';
+                const title = this.querySelector('.activity-title')?.textContent || '';
+                const speaker = this.querySelector('.speaker-name')?.textContent || '';
+                
+                showToast(`Selected: ${time} - ${title}`);
             });
         });
 
@@ -1719,19 +1735,19 @@
             body += `Name: ${name}\n`;
             body += `Email: ${email}\n`;
             body += `Phone: ${phone}\n`;
-            body += `Days Attending: ${days.join(', ')}\n`;
-            body += `Additional Notes: ${message}\n\n`;
+            body += `Days Attending: ${days.join(', ') || 'Not specified'}\n`;
+            body += `Additional Notes: ${message || 'None'}\n\n`;
             body += `Looking forward to the event!\n\n`;
             body += `Best regards,\n${name}`;
             
             // Create mailto link
-            const mailtoLink = `mailto:info@brandscapersafrica.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailtoLink = `mailto:organizer@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             
             // Open email client
-            window.location.href = mailtoLink;
+            window.open(mailtoLink, '_blank');
             
             // Show confirmation
-            showToast('RSVP submitted! Opening email client...');
+            showToast('RSVP submitted! Check your email client.');
             
             // Close modal after a delay
             setTimeout(() => {
@@ -1739,6 +1755,24 @@
                 document.body.style.overflow = 'auto';
                 rsvpForm.reset();
             }, 2000);
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Escape key closes modals
+            if (e.key === 'Escape') {
+                if (rsvpModal.classList.contains('show')) {
+                    rsvpModal.classList.remove('show');
+                    document.body.style.overflow = 'auto';
+                }
+                document.getElementById('waterTip').classList.remove('show');
+            }
+            
+            // Spacebar toggles animations
+            if (e.key === ' ' && !e.target.matches('input, textarea')) {
+                e.preventDefault();
+                toggleAnimations();
+            }
         });
 
         // Event listeners
@@ -1752,10 +1786,26 @@
         setInterval(updateCountdown, 1000);
         setInterval(showWaterTip, 30000);
 
+        // Show initial tips and welcome
         setTimeout(showWaterTip, 5000);
-        setTimeout(() => showToast('Welcome to Drop by Drop Dream - Alexandra Outreach!'), 1500);
+        setTimeout(() => showToast('Welcome to Drop by Drop Outreach Programme!'), 1500);
 
+        // Initialize map when page loads
         window.addEventListener('load', initMap);
+        
+        // Add scroll-based animations
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const st = window.pageYOffset || document.documentElement.scrollTop;
+            if (st > lastScrollTop) {
+                // Scrolling down
+                document.querySelector('.fab').style.transform = 'scale(1)';
+            } else {
+                // Scrolling up
+                document.querySelector('.fab').style.transform = 'scale(1.1)';
+            }
+            lastScrollTop = st <= 0 ? 0 : st;
+        });
     </script>
 </body>
 </html>
